@@ -8,12 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		961429B21A749A7C002A32CF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 961429B11A749A7C002A32CF /* main.m */; };
-		961429B51A749A7C002A32CF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 961429B41A749A7C002A32CF /* AppDelegate.m */; };
-		961429B81A749A7C002A32CF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961429B71A749A7C002A32CF /* ViewController.m */; };
-		961429BB1A749A7C002A32CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 961429B91A749A7C002A32CF /* Main.storyboard */; };
+		961429B51A749A7C002A32CF /* BLCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 961429B41A749A7C002A32CF /* BLCAppDelegate.m */; };
+		961429B81A749A7C002A32CF /* BLCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961429B71A749A7C002A32CF /* BLCViewController.m */; };
 		961429BD1A749A7C002A32CF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 961429BC1A749A7C002A32CF /* Images.xcassets */; };
-		961429C01A749A7C002A32CF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 961429BE1A749A7C002A32CF /* LaunchScreen.xib */; };
 		961429CC1A749A7C002A32CF /* BlocstagramTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 961429CB1A749A7C002A32CF /* BlocstagramTests.m */; };
+		961429D61A749BB1002A32CF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 961429D51A749BB1002A32CF /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,16 +29,16 @@
 		961429AC1A749A7C002A32CF /* Blocstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blocstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		961429B01A749A7C002A32CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		961429B11A749A7C002A32CF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		961429B31A749A7C002A32CF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		961429B41A749A7C002A32CF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		961429B61A749A7C002A32CF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		961429B71A749A7C002A32CF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		961429BA1A749A7C002A32CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		961429B31A749A7C002A32CF /* BLCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLCAppDelegate.h; sourceTree = "<group>"; };
+		961429B41A749A7C002A32CF /* BLCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLCAppDelegate.m; sourceTree = "<group>"; };
+		961429B61A749A7C002A32CF /* BLCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLCViewController.h; sourceTree = "<group>"; };
+		961429B71A749A7C002A32CF /* BLCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLCViewController.m; sourceTree = "<group>"; };
 		961429BC1A749A7C002A32CF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		961429BF1A749A7C002A32CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		961429C51A749A7C002A32CF /* BlocstagramTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlocstagramTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		961429CA1A749A7C002A32CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		961429CB1A749A7C002A32CF /* BlocstagramTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlocstagramTests.m; sourceTree = "<group>"; };
+		961429D51A749BB1002A32CF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
+		961429D71A749C38002A32CF /* Blocstagram-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Blocstagram-Prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,14 +80,14 @@
 		961429AE1A749A7C002A32CF /* Blocstagram */ = {
 			isa = PBXGroup;
 			children = (
-				961429B31A749A7C002A32CF /* AppDelegate.h */,
-				961429B41A749A7C002A32CF /* AppDelegate.m */,
-				961429B61A749A7C002A32CF /* ViewController.h */,
-				961429B71A749A7C002A32CF /* ViewController.m */,
-				961429B91A749A7C002A32CF /* Main.storyboard */,
+				961429B31A749A7C002A32CF /* BLCAppDelegate.h */,
+				961429B41A749A7C002A32CF /* BLCAppDelegate.m */,
+				961429B61A749A7C002A32CF /* BLCViewController.h */,
+				961429B71A749A7C002A32CF /* BLCViewController.m */,
 				961429BC1A749A7C002A32CF /* Images.xcassets */,
-				961429BE1A749A7C002A32CF /* LaunchScreen.xib */,
 				961429AF1A749A7C002A32CF /* Supporting Files */,
+				961429D51A749BB1002A32CF /* Default-568h@2x.png */,
+				961429D71A749C38002A32CF /* Blocstagram-Prefix.pch */,
 			);
 			path = Blocstagram;
 			sourceTree = "<group>";
@@ -199,9 +198,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				961429BB1A749A7C002A32CF /* Main.storyboard in Resources */,
-				961429C01A749A7C002A32CF /* LaunchScreen.xib in Resources */,
 				961429BD1A749A7C002A32CF /* Images.xcassets in Resources */,
+				961429D61A749BB1002A32CF /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,8 +217,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				961429B81A749A7C002A32CF /* ViewController.m in Sources */,
-				961429B51A749A7C002A32CF /* AppDelegate.m in Sources */,
+				961429B81A749A7C002A32CF /* BLCViewController.m in Sources */,
+				961429B51A749A7C002A32CF /* BLCAppDelegate.m in Sources */,
 				961429B21A749A7C002A32CF /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,25 +240,6 @@
 			targetProxy = 961429C61A749A7C002A32CF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		961429B91A749A7C002A32CF /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				961429BA1A749A7C002A32CF /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		961429BE1A749A7C002A32CF /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				961429BF1A749A7C002A32CF /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		961429CD1A749A7C002A32CF /* Debug */ = {

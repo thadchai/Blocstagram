@@ -6,17 +6,22 @@
 //  Copyright (c) 2015 Bloc. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "BLCAppDelegate.h"
 
-@interface AppDelegate ()
+@interface BLCAppDelegate ()
 
 @end
 
-@implementation AppDelegate
+@implementation BLCAppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // Retrieved Setup Information from: http://stackoverflow.com/questions/25783282/how-to-create-an-empty-application-in-xcode-6-without-storyboard
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    return YES;
     return YES;
 }
 
