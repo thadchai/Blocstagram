@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>AAD1CA0D-20D6-48DD-9542-DE27B15073A8</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Blocstagram</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>37DEB4787DD37736A084DE2C36FCAB774AE5592C</key>
+		<string>https://github.com/thadchai/Blocstagram.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Blocstagram.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>37DEB4787DD37736A084DE2C36FCAB774AE5592C</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/thadchai/Blocstagram.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>37DEB4787DD37736A084DE2C36FCAB774AE5592C</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>37DEB4787DD37736A084DE2C36FCAB774AE5592C</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Blocstagram</string>
+		</dict>
+	</array>
+</dict>
+</plist>
