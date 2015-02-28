@@ -20,7 +20,7 @@
 
 @implementation BLCImagesTableViewController
 
-
+// INSTANCE METHOD
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -32,18 +32,23 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
-
+// INSTANCE METHOD
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+// INSTANCE METHOD
+- (NSArray *)items {
+    return [BLCDataSource sharedInstance].mediaItems;
+}
 
 #pragma mark - Table view data source
 
+// DELEGATE METHOD - CALLED BY TABLEVIEW CONTROLLER CLASS
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [BLCDataSource sharedInstance].mediaItems.count;
+    return [self items].count;
 }
-
+// INSTANCE METHOD
 - (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
     if (self) {
@@ -53,6 +58,7 @@
     return self;
 }
 
+// DELEGATE METHOD - CALLED BY TABLEVIEW CONTROLLER CLASS
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"imageCell" forIndexPath:indexPath];
     
@@ -72,14 +78,15 @@
         [cell.contentView addSubview:imageView];
     }
     
-    BLCMedia *item = [BLCDataSource sharedInstance].mediaItems[indexPath.row];
+    BLCMedia *item = [self items][indexPath.row];
     imageView.image = item.image;
     
     return cell;
 }
 
+// DELEGATE METHOD - CALLED BY TABLEVIEW CONTROLLER CLASS
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    BLCMedia *item = [BLCDataSource sharedInstance].mediaItems[indexPath.row];
+    BLCMedia *item = [self items][indexPath.row];
     UIImage *image = item.image;
     
     return (CGRectGetWidth(self.view.frame) / image.size.width) * image.size.height;
@@ -93,7 +100,7 @@
 }
 */
 
-
+// DELEGATE METHOD - CALLED BY TABLEVIEW CONTROLLER CLASS
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {

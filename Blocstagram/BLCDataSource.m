@@ -19,6 +19,7 @@
 
 @implementation BLCDataSource
 
+// CLASS METHOD
 + (instancetype) sharedInstance {
     static dispatch_once_t once;
     static id sharedInstance;
