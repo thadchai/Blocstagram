@@ -14,4 +14,6 @@
 
 @property (nonatomic, strong, readonly) NSArray *mediaItems;
 
+- (void) deleteItem:(NSInteger)index;
+
 @end

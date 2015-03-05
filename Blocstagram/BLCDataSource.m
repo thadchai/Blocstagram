@@ -115,4 +115,11 @@
     return [NSString stringWithString:s];
 }
 
+- (void) deleteItem:(NSInteger)index {
+    
+    NSMutableArray *tempArray = [[self mediaItems] mutableCopy];
+    [tempArray removeObjectAtIndex:index];
+    self.mediaItems = [tempArray copy];
+}
+
 @end

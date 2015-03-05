@@ -80,6 +80,7 @@
 }
 
 
+// I UNCOMMENTED THIS BUT STILL DO NOT UNDERSTAND WHAT IT ACTUALLY DOES IF ANYTHING
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
@@ -87,13 +88,12 @@
 }
 
 
-// DELEGATE METHOD - CALLED BY TABLEVIEW CONTROLLER CLASS
+// DELEGATE METHOD - CALLED BY TABLE VIEW CONTROLLER CLASS
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // delete the row from our array
-        [self.images removeObjectAtIndex:indexPath.row];
-        // Delete the row from the data source
+        [[BLCDataSource sharedInstance] deleteItem:indexPath.row]; // Delete the row from the data source
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
