@@ -27,6 +27,9 @@
     
     [[BLCDataSource sharedInstance] addObserver:self forKeyPath:@"mediaItems" options:0 context:nil];
     
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(refreshControlDidFire:) forControlEvents:UIControlEventValueChanged];
+    
     [self.tableView registerClass:[BLCMediaTableViewCell class] forCellReuseIdentifier:@"mediaCell"];
     
     // Uncomment the following line to preserve selection between presentations.
@@ -35,6 +38,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+
 
 // CODE TO HANDLE MONITORING KEYS
 - (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
@@ -183,5 +187,31 @@
 {
     [[BLCDataSource sharedInstance] removeObserver:self forKeyPath:@"mediaItems"];
 }
+
+
+
+// Part of Pull down to update
+- (void) refreshControlDidFire:(UIRefreshControl *) sender {
+    [[BLCDataSource sharedInstance] requestNewItemsWithCompletionHandler:^(NSError *error) {
+        [sender endRefreshing];
+    }];
+}
+
+// Part of Infinite Scroll (Checks if users has scrolled to the last photo
+- (void) infiniteScrollIfNecessary {
+    NSIndexPath *bottomIndexPath = [[self.tableView indexPathsForVisibleRows] lastObject];
+    
+    if (bottomIndexPath && bottomIndexPath.row == [BLCDataSource sharedInstance].mediaItems.count - 1) {
+        // The very last cell is on screen
+        [[BLCDataSource sharedInstance] requestOldItemsWithCompletionHandler:nil];
+    }
+}
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    [self infiniteScrollIfNecessary];
+}
+
 
 @end

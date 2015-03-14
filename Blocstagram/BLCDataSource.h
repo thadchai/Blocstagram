@@ -10,6 +10,8 @@
 
 @class BLCMedia;
 
+typedef void (^BLCNewItemCompletionBlock)(NSError *error);
+
 @interface BLCDataSource : NSObject
 
 + (instancetype) sharedInstance;
@@ -17,5 +19,11 @@
 @property (nonatomic, strong, readonly) NSArray *mediaItems;
 
 - (void) deleteMediaItem:(BLCMedia *)item;
+
+// Pull Down to Refresh
+- (void) requestNewItemsWithCompletionHandler:(BLCNewItemCompletionBlock)completionHandler;
+
+// Infinite Scroll
+- (void) requestOldItemsWithCompletionHandler:(BLCNewItemCompletionBlock)completionHandler;
 
 @end

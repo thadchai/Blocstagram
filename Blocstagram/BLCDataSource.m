@@ -17,6 +17,13 @@
 
 @property (nonatomic, strong) NSArray *mediaItems;
 
+// Adding a BOOL property to track whether a refresh is already in progress
+@property (nonatomic, assign) BOOL isRefreshing;
+
+// Adding a BOOL property to track whether an older item is loading
+@property (nonatomic, assign) BOOL isLoadingOlderItems;
+
+
 @end
 
 @implementation BLCDataSource
@@ -147,6 +154,47 @@
 
 - (void) replaceObjectInMediaItemsAtIndex:(NSUInteger)index withObject:(id)object {
     [_mediaItems replaceObjectAtIndex:index withObject:object];
+}
+
+
+// Part of Pull down to update
+- (void) requestNewItemsWithCompletionHandler:(BLCNewItemCompletionBlock)completionHandler {
+    if (self.isRefreshing == NO) {
+        self.isRefreshing = YES;
+        BLCMedia *media = [[BLCMedia alloc] init];
+        media.user = [self randomUser];
+        media.image = [UIImage imageNamed:@"10.jpg"];
+        //media.caption = [self randomSentenceWithMaximumNumberOfWords:7];
+        
+        NSMutableArray *mutableArrayWithKVO = [self mutableArrayValueForKey:@"mediaItems"];
+        [mutableArrayWithKVO insertObject:media atIndex:0];
+        
+        self.isRefreshing = NO;
+        
+        if (completionHandler) {
+            completionHandler(nil);
+        }
+    }
+}
+
+// Part of Infinite Scroll
+- (void) requestOldItemsWithCompletionHandler:(BLCNewItemCompletionBlock)completionHandler {
+    if (self.isLoadingOlderItems == NO) {
+        self.isLoadingOlderItems = YES;
+        BLCMedia *media = [[BLCMedia alloc] init];
+        media.user = [self randomUser];
+        media.image = [UIImage imageNamed:@"1.jpg"];
+        //media.caption = [self randomSentenceWithMaximumNumberOfWords:7];
+        
+        NSMutableArray *mutableArrayWithKVO = [self mutableArrayValueForKey:@"mediaItems"];
+        [mutableArrayWithKVO addObject:media];
+        
+        self.isLoadingOlderItems = NO;
+        
+        if (completionHandler) {
+            completionHandler(nil);
+        }
+    }
 }
 
 @end
