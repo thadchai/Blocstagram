@@ -18,6 +18,9 @@ typedef void (^BLCNewItemCompletionBlock)(NSError *error);
 
 @property (nonatomic, strong, readonly) NSArray *mediaItems;
 
+@property (nonatomic, strong, readonly) NSString *accessToken;
+
+
 - (void) deleteMediaItem:(BLCMedia *)item;
 
 // Pull Down to Refresh
@@ -25,5 +28,7 @@ typedef void (^BLCNewItemCompletionBlock)(NSError *error);
 
 // Infinite Scroll
 - (void) requestOldItemsWithCompletionHandler:(BLCNewItemCompletionBlock)completionHandler;
+
++ (NSString *) instagramClientID;
 
 @end

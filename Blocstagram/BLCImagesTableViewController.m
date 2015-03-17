@@ -12,6 +12,7 @@
 #import "BLCUser.h"
 #import "BLCComment.h"
 #import "BLCMediaTableViewCell.h"
+#import "BLCLoginViewController.h"
 
 @interface BLCImagesTableViewController ()
 
