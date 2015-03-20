@@ -6,12 +6,16 @@
 //  Copyright (c) 2015 Bloc. All rights reserved.
 //
 
+#import "BLCAppDelegate.h"
 #import "BLCLoginViewController.h"
 #import "BLCDataSource.h"
 
 @interface BLCLoginViewController () <UIWebViewDelegate>
 
 @property (nonatomic, weak) UIWebView *webView;
+@property (nonatomic, strong) UIButton *backButton;
+@property (nonatomic, assign) BOOL isLoading;
+
 
 @end
 
@@ -20,15 +24,28 @@
 NSString *const BLCLoginViewControllerDidGetAccessTokenNotification = @"BLCLoginViewControllerDidGetAccessTokenNotification";
 
 - (NSString *)redirectURI {
-    return @"<the redirect URI you specified when signing up with instagram>";
+    return @"http://bloc.io";
 }
 
 - (void)loadView {
+    
+    self.title = NSLocalizedString(@"Login", @"Login");
+    
     UIWebView *webView = [[UIWebView alloc] init];
-    webView.delegate = self;
+    self.webView.delegate = self;
     
     self.webView = webView;
+    
+    self.backButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [self.backButton setEnabled:YES];
+    [self.backButton setTitle:NSLocalizedString(@"Back", @"Back command") forState:UIControlStateNormal];
+    [self.backButton addTarget:self.webView action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
+    self.backButton.enabled = [self.webView canGoBack];
+    [self.webView addSubview:self.backButton];
+    
     self.view = webView;
+
+    
 }
 
 - (void)viewDidLoad {
@@ -42,6 +59,25 @@ NSString *const BLCLoginViewControllerDidGetAccessTokenNotification = @"BLCLogin
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
         [self.webView loadRequest:request];
     }
+    
+}
+
+- (void) viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    static const CGFloat itemHeight = 50;
+    CGFloat width = CGRectGetWidth(self.view.bounds);
+    CGFloat browserHeight = CGRectGetHeight(self.view.bounds) - itemHeight;
+    CGFloat buttonWidth = CGRectGetWidth(self.view.bounds) / 4;
+    
+    self.webView.frame = CGRectMake(0, 0, width, browserHeight);
+    
+    CGFloat currentButtonX = 0;
+    
+    for (UIButton *thisButton in @[self.backButton]) {
+        thisButton.frame = CGRectMake(currentButtonX, CGRectGetMaxY(self.webView.frame), buttonWidth, itemHeight);
+        currentButtonX += buttonWidth;
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {

@@ -17,7 +17,6 @@ typedef void (^BLCNewItemCompletionBlock)(NSError *error);
 + (instancetype) sharedInstance;
 
 @property (nonatomic, strong, readonly) NSArray *mediaItems;
-
 @property (nonatomic, strong, readonly) NSString *accessToken;
 
 

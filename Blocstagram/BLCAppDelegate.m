@@ -24,6 +24,7 @@
     [BLCDataSource sharedInstance]; // create the data source (so it can receive the access token notification)
     
     UINavigationController *navVC = [[UINavigationController alloc] init];
+    
     BLCLoginViewController *loginVC = [[BLCLoginViewController alloc] init];
     [navVC setViewControllers:@[loginVC] animated:YES];
     
@@ -33,9 +34,10 @@
     }];
     
     self.window.rootViewController = navVC;
+    
     // Override point for customization after application launch.
-//    self.window.backgroundColor = [UIColor whiteColor];
-//    [self.window makeKeyAndVisible];
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
