@@ -64,11 +64,11 @@
     }];
 }
 
-
-- (void) deleteMediaItem:(BLCMedia *)item {
-    NSMutableArray *mutableArrayWithKVO = [self mutableArrayValueForKey:@"mediaItems"];
-    [mutableArrayWithKVO removeObject:item];
-}
+//
+//- (void) deleteMediaItem:(BLCMedia *)item {
+//    NSMutableArray *mutableArrayWithKVO = [self mutableArrayValueForKey:@"mediaItems"];
+//    [mutableArrayWithKVO removeObject:item];
+//}
 
 
 // Part of Pull down to update
