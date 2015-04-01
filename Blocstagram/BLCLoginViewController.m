@@ -31,17 +31,21 @@ NSString *const BLCLoginViewControllerDidGetAccessTokenNotification = @"BLCLogin
     
     self.title = NSLocalizedString(@"Login", @"Login");
     
+    //Create the object in memory
     UIWebView *webView = [[UIWebView alloc] init];
-    self.webView.delegate = self;
     
+    //set the object delegate
+    webView.delegate = self;
+    
+    //set the property equal to the object
     self.webView = webView;
     
-    self.backButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [self.backButton setEnabled:YES];
-    [self.backButton setTitle:NSLocalizedString(@"Back", @"Back command") forState:UIControlStateNormal];
-    [self.backButton addTarget:self.webView action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
-    self.backButton.enabled = [self.webView canGoBack];
-    [self.webView addSubview:self.backButton];
+//    self.backButton = [UIButton buttonWithType:UIButtonTypeSystem];
+//    [self.backButton setEnabled:YES];
+//    [self.backButton setTitle:NSLocalizedString(@"Back", @"Back command") forState:UIControlStateNormal];
+//    [self.backButton addTarget:self.webView action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
+//    self.backButton.enabled = [self.webView canGoBack];
+//    [self.webView addSubview:self.backButton];
     
     self.view = webView;
 
@@ -64,19 +68,19 @@ NSString *const BLCLoginViewControllerDidGetAccessTokenNotification = @"BLCLogin
 
 - (void) viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
-    static const CGFloat itemHeight = 50;
-    CGFloat width = CGRectGetWidth(self.view.bounds);
-    CGFloat browserHeight = CGRectGetHeight(self.view.bounds) - itemHeight;
-    CGFloat buttonWidth = CGRectGetWidth(self.view.bounds) / 4;
-    
-    self.webView.frame = CGRectMake(0, 0, width, browserHeight);
-    
-    CGFloat currentButtonX = 0;
-    
-    for (UIButton *thisButton in @[self.backButton]) {
-        thisButton.frame = CGRectMake(currentButtonX, CGRectGetMaxY(self.webView.frame), buttonWidth, itemHeight);
-        currentButtonX += buttonWidth;
-    }
+//    static const CGFloat itemHeight = 50;
+//    CGFloat width = CGRectGetWidth(self.view.bounds);
+//    CGFloat browserHeight = CGRectGetHeight(self.view.bounds) - itemHeight;
+//    CGFloat buttonWidth = CGRectGetWidth(self.view.bounds) / 4;
+//    
+//    self.webView.frame = CGRectMake(0, 0, width, browserHeight);
+//    
+//    CGFloat currentButtonX = 0;
+//    
+//    for (UIButton *thisButton in @[self.backButton]) {
+//        thisButton.frame = CGRectMake(currentButtonX, CGRectGetMaxY(self.webView.frame), buttonWidth, itemHeight);
+//        currentButtonX += buttonWidth;
+//    }
     
 }
 
@@ -118,14 +122,28 @@ NSString *const BLCLoginViewControllerDidGetAccessTokenNotification = @"BLCLogin
 
 // This method searches for a URL containing the redirect URI, and then sets the access token to everything after access_token=
 - (BOOL) webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    
     NSString *urlString = request.URL.absoluteString;
+    NSLog(@"uri: %@",[self redirectURI]);
     if ([urlString hasPrefix:[self redirectURI]]) {
         // This contains our auth token
         NSRange rangeOfAccessTokenParameter = [urlString rangeOfString:@"access_token="];
         NSUInteger indexOfTokenStarting = rangeOfAccessTokenParameter.location + rangeOfAccessTokenParameter.length;
         NSString *accessToken = [urlString substringFromIndex:indexOfTokenStarting];
+        
         [[NSNotificationCenter defaultCenter] postNotificationName:BLCLoginViewControllerDidGetAccessTokenNotification object:accessToken];
+        
         return NO;
+    }
+    
+    else if ([urlString isEqualToString:@"https://instagram.com/accounts/password/reset/"])
+    {
+        UIBarButtonItem *leftBarButtonItem  = [[UIBarButtonItem alloc] initWithTitle:@"Back"
+                                                                               style:UIBarButtonItemStylePlain
+                                                                              target:self
+                                                                              action:@selector(back)];
+        
+        self.navigationItem.leftBarButtonItem = leftBarButtonItem ;
     }
     
     return YES;
