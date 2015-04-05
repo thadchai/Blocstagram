@@ -141,7 +141,7 @@ NSString *const BLCLoginViewControllerDidGetAccessTokenNotification = @"BLCLogin
         UIBarButtonItem *leftBarButtonItem  = [[UIBarButtonItem alloc] initWithTitle:@"Back"
                                                                                style:UIBarButtonItemStylePlain
                                                                               target:self
-                                                                              action:@selector(back)];
+                                                                              action:@selector(backButton)];
         
         self.navigationItem.leftBarButtonItem = leftBarButtonItem ;
     }

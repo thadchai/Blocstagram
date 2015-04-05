@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h> //had to add this for UIImage to be recognized
 
-@interface BLCUser : NSObject
+@interface BLCUser : NSObject <NSCoding>
 
 @property (nonatomic, strong) NSString *idNumber;
 @property (nonatomic, strong) NSString *userName;
