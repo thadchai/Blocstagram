@@ -71,6 +71,11 @@
 - (void) deleteMediaItem:(BLCMedia *)item {
     NSMutableArray *mutableArrayWithKVO = [self mutableArrayValueForKey:@"mediaItems"];
    [mutableArrayWithKVO removeObject:item];
+    
+    // Assignment work:  BUG FIX
+    if (self.mediaItems.count == 1){
+        [[BLCDataSource sharedInstance] requestOldItemsWithCompletionHandler:nil];
+    }
 }
 
 // Part of Pull down to update
