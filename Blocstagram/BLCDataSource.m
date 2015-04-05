@@ -73,10 +73,10 @@
    [mutableArrayWithKVO removeObject:item];
 }
 
-
 // Part of Pull down to update
 - (void) requestNewItemsWithCompletionHandler:(BLCNewItemCompletionBlock)completionHandler {
     self.thereAreNoMoreOlderMessages = NO;
+    
     if (self.isRefreshing == NO) {
         self.isRefreshing = YES;
         
@@ -216,6 +216,7 @@
         NSIndexSet *indexSetOfNewObjects = [NSIndexSet indexSetWithIndexesInRange:rangeOfIndexes];
         
         [mutableArrayWithKVO insertObjects:tmpMediaItems atIndexes:indexSetOfNewObjects];
+        
     } else if (parameters[@"max_id"]) {
         // This was an infinite scroll request
         
