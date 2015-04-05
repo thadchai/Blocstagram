@@ -35,7 +35,7 @@
 
 // Changed ClientID
 + (NSString *) instagramClientID {
-    return @"75bdfd7e9f4e479ebb32181a74aec838";
+    return @"";
 }
 
 // CLASS METHOD
