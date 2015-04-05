@@ -33,8 +33,9 @@
 
 @implementation BLCDataSource
 
+// Changed ClientID
 + (NSString *) instagramClientID {
-    return @"23952a661f78464ebba7eda23c96cbd6";
+    return @"75bdfd7e9f4e479ebb32181a74aec838";
 }
 
 // CLASS METHOD
