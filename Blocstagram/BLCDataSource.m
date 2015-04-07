@@ -49,7 +49,6 @@
     return sharedInstance;
 }
 
-
 - (instancetype) init {
     self = [super init];
     
@@ -70,6 +69,7 @@
                         [self willChangeValueForKey:@"mediaItems"];
                         self.mediaItems = mutableMediaItems;
                         [self didChangeValueForKey:@"mediaItems"];
+                        [self populateDataWithParameters:nil completionHandler:nil];
                     } else {
                         [self populateDataWithParameters:nil completionHandler:nil];
                     }
@@ -79,6 +79,15 @@
     }
     
     return self;
+}
+
+// Method to create the full path to a file given a filename
+- (NSString *) pathForFilename:(NSString *) filename {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths firstObject];
+    NSString *dataPath = [documentsDirectory stringByAppendingPathComponent:filename];
+    NSLog(@"%@", dataPath);
+    return dataPath;
 }
 
 - (void) registerForAccessTokenNotification {
@@ -217,7 +226,7 @@
     }
 }
 
-- (void) parseDataFromFeedDictionary:(NSDictionary *) feedDictionary fromRequestWithParameters:(NSDictionary *)parameters {
+- (void) parseDataFromFeedDictionary:(NSDictionary *)feedDictionary fromRequestWithParameters:(NSDictionary *)parameters {
     NSArray *mediaArray = feedDictionary[@"data"];
     
     NSMutableArray *tmpMediaItems = [NSMutableArray array];
@@ -274,6 +283,7 @@
         });
         
     }
+    
 }
 
 - (void) downloadImageForMediaItem:(BLCMedia *)mediaItem {
@@ -302,13 +312,6 @@
             }
         });
     }
-}
-
-- (NSString *) pathForFilename:(NSString *) filename {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths firstObject];
-    NSString *dataPath = [documentsDirectory stringByAppendingPathComponent:filename];
-    return dataPath;
 }
 
 @end
