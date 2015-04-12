@@ -24,6 +24,8 @@
 		961429EC1A74A366002A32CF /* 10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 961429E21A74A366002A32CF /* 10.jpg */; };
 		961429EF1A74A3C7002A32CF /* BLCImagesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 961429EE1A74A3C7002A32CF /* BLCImagesTableViewController.m */; };
 		9641CA201AB614F200A1C3B9 /* BLCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9641CA1F1AB614F200A1C3B9 /* BLCLoginViewController.m */; };
+		966B84021AD4D81D00A21393 /* BLCMediaFullScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 966B84011AD4D81D00A21393 /* BLCMediaFullScreenViewController.m */; };
+		966B84051AD4ED7E00A21393 /* BLCMediaFullScreenAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 966B84041AD4ED7E00A21393 /* BLCMediaFullScreenAnimator.m */; };
 		969547C51AA55D0C001D468A /* BLCMediaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 969547C41AA55D0C001D468A /* BLCMediaTableViewCell.m */; };
 		96FDD81D1A9EBBE600EA0F8E /* BLCUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 96FDD81C1A9EBBE600EA0F8E /* BLCUser.m */; };
 		96FDD8201A9EC58F00EA0F8E /* BLCMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 96FDD81F1A9EC58F00EA0F8E /* BLCMedia.m */; };
@@ -69,6 +71,10 @@
 		961429EE1A74A3C7002A32CF /* BLCImagesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCImagesTableViewController.m; sourceTree = "<group>"; };
 		9641CA1E1AB614F200A1C3B9 /* BLCLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCLoginViewController.h; sourceTree = "<group>"; };
 		9641CA1F1AB614F200A1C3B9 /* BLCLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCLoginViewController.m; sourceTree = "<group>"; };
+		966B84001AD4D81D00A21393 /* BLCMediaFullScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCMediaFullScreenViewController.h; sourceTree = "<group>"; };
+		966B84011AD4D81D00A21393 /* BLCMediaFullScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCMediaFullScreenViewController.m; sourceTree = "<group>"; };
+		966B84031AD4ED7E00A21393 /* BLCMediaFullScreenAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCMediaFullScreenAnimator.h; sourceTree = "<group>"; };
+		966B84041AD4ED7E00A21393 /* BLCMediaFullScreenAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCMediaFullScreenAnimator.m; sourceTree = "<group>"; };
 		969547C31AA55D0C001D468A /* BLCMediaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCMediaTableViewCell.h; sourceTree = "<group>"; };
 		969547C41AA55D0C001D468A /* BLCMediaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCMediaTableViewCell.m; sourceTree = "<group>"; };
 		96FDD81B1A9EBBE600EA0F8E /* BLCUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCUser.h; sourceTree = "<group>"; };
@@ -138,10 +144,14 @@
 				961429B41A749A7C002A32CF /* BLCAppDelegate.m */,
 				961429ED1A74A3C7002A32CF /* BLCImagesTableViewController.h */,
 				961429EE1A74A3C7002A32CF /* BLCImagesTableViewController.m */,
+				966B84031AD4ED7E00A21393 /* BLCMediaFullScreenAnimator.h */,
+				966B84041AD4ED7E00A21393 /* BLCMediaFullScreenAnimator.m */,
 				969547C31AA55D0C001D468A /* BLCMediaTableViewCell.h */,
 				969547C41AA55D0C001D468A /* BLCMediaTableViewCell.m */,
 				9641CA1E1AB614F200A1C3B9 /* BLCLoginViewController.h */,
 				9641CA1F1AB614F200A1C3B9 /* BLCLoginViewController.m */,
+				966B84001AD4D81D00A21393 /* BLCMediaFullScreenViewController.h */,
+				966B84011AD4D81D00A21393 /* BLCMediaFullScreenViewController.m */,
 				96FDD81B1A9EBBE600EA0F8E /* BLCUser.h */,
 				96FDD81C1A9EBBE600EA0F8E /* BLCUser.m */,
 				96FDD81E1A9EC58F00EA0F8E /* BLCMedia.h */,
@@ -355,11 +365,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				96FDD81D1A9EBBE600EA0F8E /* BLCUser.m in Sources */,
+				966B84051AD4ED7E00A21393 /* BLCMediaFullScreenAnimator.m in Sources */,
 				961429B51A749A7C002A32CF /* BLCAppDelegate.m in Sources */,
 				961429B21A749A7C002A32CF /* main.m in Sources */,
 				961429EF1A74A3C7002A32CF /* BLCImagesTableViewController.m in Sources */,
 				96FDD8201A9EC58F00EA0F8E /* BLCMedia.m in Sources */,
 				96FDD8231A9EC6E900EA0F8E /* BLCComment.m in Sources */,
+				966B84021AD4D81D00A21393 /* BLCMediaFullScreenViewController.m in Sources */,
 				969547C51AA55D0C001D468A /* BLCMediaTableViewCell.m in Sources */,
 				96FDD8261A9EC87C00EA0F8E /* BLCDataSource.m in Sources */,
 				9641CA201AB614F200A1C3B9 /* BLCLoginViewController.m in Sources */,
