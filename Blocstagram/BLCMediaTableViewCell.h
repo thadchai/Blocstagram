@@ -15,6 +15,9 @@
 - (void) cell:(BLCMediaTableViewCell *)cell didTapImageView:(UIImageView *)imageView;
 - (void) cell:(BLCMediaTableViewCell *)cell didLongPressImageView:(UIImageView *)imageView;
 
+// Assignment Work - two finger tap on cell to retry image download
+- (void) cell:(BLCMediaTableViewCell *)cell didTwoFingerPressImageView:(UIImageView *)imageView;
+
 @end
 
 @interface BLCMediaTableViewCell : UITableViewCell

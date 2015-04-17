@@ -13,6 +13,8 @@
 
 @interface BLCMedia : NSObject <NSCoding>
 
++ (instancetype) sharedInstance;
+
 @property (nonatomic, strong) NSString *idNumber;
 @property (nonatomic, strong) BLCUser *user;
 @property (nonatomic, strong) NSURL *mediaURL;
@@ -20,6 +22,8 @@
 @property (nonatomic, strong) NSString *caption;
 @property (nonatomic, strong) NSArray *comments;
 
- - (instancetype) initWithDictionary:(NSDictionary *)mediaDictionary;
+- (instancetype) initWithDictionary:(NSDictionary *)mediaDictionary;
+
+- (void) decodeWithCoder;
 
 @end

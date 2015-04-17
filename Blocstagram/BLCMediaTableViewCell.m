@@ -24,6 +24,9 @@
 @property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer;
 @property (nonatomic, strong) UILongPressGestureRecognizer *longPressGestureRecognizer;
 
+// Assignment Work - two finger tap on cell to retry image download
+@property (nonatomic, strong) UITapGestureRecognizer *twoFingerCellTapRecognizer;
+
 @end
 
 static UIFont *lightFont;
@@ -66,6 +69,11 @@ static NSParagraphStyle *paragraphStyle;
         self.longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressFired:)];
         self.longPressGestureRecognizer.delegate = self;
         [self.mediaImageView addGestureRecognizer:self.longPressGestureRecognizer];
+        
+        // Assignment work - two finger tap on cell to retry image download
+        self.twoFingerCellTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(twoFingerTapFired:)];
+        self.twoFingerCellTapRecognizer.delegate = self;
+        [self.mediaImageView addGestureRecognizer:self.twoFingerCellTapRecognizer];
         
         self.usernameAndCaptionLabel = [[UILabel alloc] init];
         self.usernameAndCaptionLabel.numberOfLines = 0;
@@ -193,6 +201,13 @@ static NSParagraphStyle *paragraphStyle;
 - (void) longPressFired:(UILongPressGestureRecognizer *)sender {
     if (sender.state == UIGestureRecognizerStateBegan) {
         [self.delegate cell:self didLongPressImageView:self.mediaImageView];
+    }
+}
+
+// Assignment Work - two finger tap on cell to retry image download
+- (void) twoFingerTapFired:(UITapGestureRecognizer *)sender {
+    if (self.twoFingerCellTapRecognizer.numberOfTapsRequired == 2) {
+    [self.delegate cell:self didTwoFingerPressImageView:self.mediaImageView];
     }
 }
 

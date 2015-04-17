@@ -9,8 +9,19 @@
 #import "BLCMedia.h"
 #import "BLCUser.h"
 #import "BLCComment.h"
+#import "BLCMediaTableViewCell.h"
 
 @implementation BLCMedia
+
+// CLASS METHOD
++ (instancetype) sharedInstance {
+    static dispatch_once_t once;
+    static id sharedInstance;
+    dispatch_once(&once, ^{
+        sharedInstance = [[self alloc] init];
+    });
+    return sharedInstance;
+}
 
 - (instancetype) initWithDictionary:(NSDictionary *)mediaDictionary {
     self = [super init];
@@ -71,6 +82,11 @@
     [aCoder encodeObject:self.image forKey:NSStringFromSelector(@selector(image))];
     [aCoder encodeObject:self.caption forKey:NSStringFromSelector(@selector(caption))];
     [aCoder encodeObject:self.comments forKey:NSStringFromSelector(@selector(comments))];
+}
+
+// Assignment Work - two finger tap for retry image download
+- (void) decodeWithCoder:(NSCoder *)aDecoder {
+    self.image = [aDecoder decodeObjectForKey:NSStringFromSelector(@selector(image))];
 }
 
 @end
