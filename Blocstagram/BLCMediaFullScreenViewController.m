@@ -18,8 +18,6 @@
 @property (nonatomic, strong) UITapGestureRecognizer *tap;
 @property (nonatomic, strong) UITapGestureRecognizer *doubleTap;
 
-// Share Button
-@property (nonatomic, strong) UIButton *shareButton;
 
 @end
 
@@ -64,13 +62,27 @@
     [self.scrollView addGestureRecognizer:self.tap];
     [self.scrollView addGestureRecognizer:self.doubleTap];
     
-    // Assignment - Share Button
-    UIBarButtonItem *shareButton = [[UIBarButtonItem alloc]
-                                    initWithBarButtonSystemItem:UIBarButtonSystemItemAction
-                                    target:self
-                                    action:@selector(share:)];
-    self.navigationItem.rightBarButtonItem = shareButton;
+    // Assignment - Share Button -- Walked through w/ Mark
+    UIButton *shareButton = [UIButton buttonWithType:UIButtonTypeSystem];
     
+    //Setting properties of the button
+    [shareButton setTitle:@"Share" forState:UIControlStateNormal];
+    [shareButton addTarget:self action:@selector(share) forControlEvents:UIControlEventTouchUpInside];
+    shareButton.backgroundColor = [UIColor whiteColor];
+    [shareButton sizeToFit];
+    [shareButton setFrame: (CGRectMake(20, 20, shareButton.frame.size.width, shareButton.frame.size.height))];
+    [self.scrollView addSubview:shareButton];
+    
+    
+}
+    // Assignment - Share Button -- Took and pieced together from BLCImageTableViewController
+- (void) share {
+    NSMutableArray *itemsToShare = [NSMutableArray array];
+    
+    [itemsToShare addObject:self.imageView.image];
+    
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
+    [self presentViewController:activityVC animated:YES completion:nil];
 }
 
 - (void) viewWillLayoutSubviews {
