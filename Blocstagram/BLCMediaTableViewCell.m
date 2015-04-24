@@ -206,9 +206,9 @@ static NSParagraphStyle *paragraphStyle;
 
 // Assignment Work - two finger tap on cell to retry image download
 - (void) twoFingerTapFired:(UITapGestureRecognizer *)sender {
-    if (self.twoFingerCellTapRecognizer.numberOfTapsRequired == 2) {
+    //if (self.twoFingerCellTapRecognizer.numberOfTapsRequired == 2) {
     [self.delegate cell:self didTwoFingerPressImageView:self.mediaImageView];
-    }
+    //}
 }
 
 #pragma mark - UIGestureRecognizerDelegate

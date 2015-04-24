@@ -13,16 +13,6 @@
 
 @implementation BLCMedia
 
-// CLASS METHOD
-+ (instancetype) sharedInstance {
-    static dispatch_once_t once;
-    static id sharedInstance;
-    dispatch_once(&once, ^{
-        sharedInstance = [[self alloc] init];
-    });
-    return sharedInstance;
-}
-
 - (instancetype) initWithDictionary:(NSDictionary *)mediaDictionary {
     self = [super init];
     

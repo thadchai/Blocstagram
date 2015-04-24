@@ -261,11 +261,11 @@
     }
 }
 
-// Assignment work - Implementation of the delegate method for two finger tapping
+// Assignment work - Implementation of the delegate method for two finger tapping (NOT WORKING YET)
 - (void) cell:(BLCMediaTableViewCell *)cell didTwoFingerPressImageView:(UIImageView *)imageView {
-    [[BLCMedia sharedInstance] decodeWithCoder];
+    [[BLCDataSource sharedInstance] requestNewItemsWithCompletionHandler:^(NSError *error) {
+    }];
 }
-
 #pragma mark - UIViewControllerTransitioningDelegate
 
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
