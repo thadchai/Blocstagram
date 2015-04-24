@@ -28,6 +28,8 @@ typedef void (^BLCNewItemCompletionBlock)(NSError *error);
 // Infinite Scroll
 - (void) requestOldItemsWithCompletionHandler:(BLCNewItemCompletionBlock)completionHandler;
 
+- (void) downloadImageForMediaItem:(BLCMedia *)mediaItem;
+
 + (NSString *) instagramClientID;
 
 @end

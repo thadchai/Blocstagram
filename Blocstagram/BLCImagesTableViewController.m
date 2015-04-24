@@ -128,6 +128,13 @@
     return cell;
 }
 
+- (void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    BLCMedia *mediaItem = [BLCDataSource sharedInstance].mediaItems[indexPath.row];
+    if (mediaItem.downloadState == BLCMediaDownloadStateNeedsImage) {
+        [[BLCDataSource sharedInstance] downloadImageForMediaItem:mediaItem];
+    }
+}
+
 // DELEGATE METHOD - CALLED BY TABLEVIEW CONTROLLER CLASS
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     BLCMedia *item = [self items][indexPath.row];
