@@ -27,6 +27,8 @@
 		966B84021AD4D81D00A21393 /* BLCMediaFullScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 966B84011AD4D81D00A21393 /* BLCMediaFullScreenViewController.m */; };
 		966B84051AD4ED7E00A21393 /* BLCMediaFullScreenAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 966B84041AD4ED7E00A21393 /* BLCMediaFullScreenAnimator.m */; };
 		969547C51AA55D0C001D468A /* BLCMediaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 969547C41AA55D0C001D468A /* BLCMediaTableViewCell.m */; };
+		96E9DAE41AEC6BDD00276EBD /* BLCCircleSpinnerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E9DAE31AEC6BDD00276EBD /* BLCCircleSpinnerView.m */; };
+		96E9DAE71AEC95E500276EBD /* BLCLikeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E9DAE61AEC95E500276EBD /* BLCLikeButton.m */; };
 		96FDD81D1A9EBBE600EA0F8E /* BLCUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 96FDD81C1A9EBBE600EA0F8E /* BLCUser.m */; };
 		96FDD8201A9EC58F00EA0F8E /* BLCMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 96FDD81F1A9EC58F00EA0F8E /* BLCMedia.m */; };
 		96FDD8231A9EC6E900EA0F8E /* BLCComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 96FDD8221A9EC6E900EA0F8E /* BLCComment.m */; };
@@ -77,6 +79,10 @@
 		966B84041AD4ED7E00A21393 /* BLCMediaFullScreenAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCMediaFullScreenAnimator.m; sourceTree = "<group>"; };
 		969547C31AA55D0C001D468A /* BLCMediaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCMediaTableViewCell.h; sourceTree = "<group>"; };
 		969547C41AA55D0C001D468A /* BLCMediaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCMediaTableViewCell.m; sourceTree = "<group>"; };
+		96E9DAE21AEC6BDD00276EBD /* BLCCircleSpinnerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCCircleSpinnerView.h; sourceTree = "<group>"; };
+		96E9DAE31AEC6BDD00276EBD /* BLCCircleSpinnerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCCircleSpinnerView.m; sourceTree = "<group>"; };
+		96E9DAE51AEC95E500276EBD /* BLCLikeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCLikeButton.h; sourceTree = "<group>"; };
+		96E9DAE61AEC95E500276EBD /* BLCLikeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCLikeButton.m; sourceTree = "<group>"; };
 		96FDD81B1A9EBBE600EA0F8E /* BLCUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCUser.h; sourceTree = "<group>"; };
 		96FDD81C1A9EBBE600EA0F8E /* BLCUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCUser.m; sourceTree = "<group>"; };
 		96FDD81E1A9EC58F00EA0F8E /* BLCMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCMedia.h; sourceTree = "<group>"; };
@@ -161,6 +167,10 @@
 				96FDD8241A9EC87C00EA0F8E /* BLCDataSource.h */,
 				96FDD8251A9EC87C00EA0F8E /* BLCDataSource.m */,
 				961429BC1A749A7C002A32CF /* Images.xcassets */,
+				96E9DAE21AEC6BDD00276EBD /* BLCCircleSpinnerView.h */,
+				96E9DAE31AEC6BDD00276EBD /* BLCCircleSpinnerView.m */,
+				96E9DAE51AEC95E500276EBD /* BLCLikeButton.h */,
+				96E9DAE61AEC95E500276EBD /* BLCLikeButton.m */,
 				961429D81A74A330002A32CF /* Images */,
 				961429AF1A749A7C002A32CF /* Supporting Files */,
 				961429D51A749BB1002A32CF /* Default-568h@2x.png */,
@@ -366,10 +376,12 @@
 			files = (
 				96FDD81D1A9EBBE600EA0F8E /* BLCUser.m in Sources */,
 				966B84051AD4ED7E00A21393 /* BLCMediaFullScreenAnimator.m in Sources */,
+				96E9DAE71AEC95E500276EBD /* BLCLikeButton.m in Sources */,
 				961429B51A749A7C002A32CF /* BLCAppDelegate.m in Sources */,
 				961429B21A749A7C002A32CF /* main.m in Sources */,
 				961429EF1A74A3C7002A32CF /* BLCImagesTableViewController.m in Sources */,
 				96FDD8201A9EC58F00EA0F8E /* BLCMedia.m in Sources */,
+				96E9DAE41AEC6BDD00276EBD /* BLCCircleSpinnerView.m in Sources */,
 				96FDD8231A9EC6E900EA0F8E /* BLCComment.m in Sources */,
 				966B84021AD4D81D00A21393 /* BLCMediaFullScreenViewController.m in Sources */,
 				969547C51AA55D0C001D468A /* BLCMediaTableViewCell.m in Sources */,

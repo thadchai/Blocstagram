@@ -273,6 +273,12 @@
     [[BLCDataSource sharedInstance] requestNewItemsWithCompletionHandler:^(NSError *error) {
     }];
 }
+
+// method to connect the cell to the new data source method
+- (void) cellDidPressLikeButton:(BLCMediaTableViewCell *)cell {
+    [[BLCDataSource sharedInstance] toggleLikeOnMediaItem:cell.mediaItem];
+}
+
 #pragma mark - UIViewControllerTransitioningDelegate
 
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented

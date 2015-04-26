@@ -10,6 +10,7 @@
 #import "BLCMedia.h"
 #import "BLCComment.h"
 #import "BLCUser.h"
+#import "BLCLikeButton.h"
 
 //Declare that we conform to the gesture recognizer delegate protocol
 @interface BLCMediaTableViewCell () <UIGestureRecognizerDelegate>
@@ -23,6 +24,9 @@
 
 @property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer;
 @property (nonatomic, strong) UILongPressGestureRecognizer *longPressGestureRecognizer;
+
+// property for like Button
+@property (nonatomic, strong) BLCLikeButton *likeButton;
 
 // Assignment Work - two finger tap on cell to retry image download
 @property (nonatomic, strong) UITapGestureRecognizer *twoFingerCellTapRecognizer;
@@ -79,25 +83,31 @@ static NSParagraphStyle *paragraphStyle;
         self.usernameAndCaptionLabel.numberOfLines = 0;
         self.commentLabel = [[UILabel alloc] init];
         self.commentLabel.numberOfLines = 0;
+        self.commentLabel.backgroundColor = commentLabelGray;
+        
+        // Creating the like button, adding it to the view hierarchy, and update the layout constraints with its location
+        self.likeButton = [[BLCLikeButton alloc] init];
+        [self.likeButton addTarget:self action:@selector(likePressed:) forControlEvents:UIControlEventTouchUpInside];
+        self.likeButton.backgroundColor = usernameLabelGray;
 
-        for (UIView *view in @[self.mediaImageView, self.usernameAndCaptionLabel, self.commentLabel]) {
+        for (UIView *view in @[self.mediaImageView, self.usernameAndCaptionLabel, self.commentLabel, self.likeButton]) {
             [self.contentView addSubview:view];
             view.translatesAutoresizingMaskIntoConstraints = NO;
         }
     }
    
     
-    NSDictionary *viewDictionary = NSDictionaryOfVariableBindings(_mediaImageView, _usernameAndCaptionLabel, _commentLabel);
+    NSDictionary *viewDictionary = NSDictionaryOfVariableBindings(_mediaImageView, _usernameAndCaptionLabel, _commentLabel, _likeButton);
     
     [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_mediaImageView]|"
                                                                              options:kNilOptions
                                                                              metrics:nil
                                                                                views:viewDictionary]];
     
-    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_usernameAndCaptionLabel]|"
-                                                                             options:kNilOptions
-                                                                             metrics:nil
-                                                                               views:viewDictionary]];
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_usernameAndCaptionLabel][_likeButton(==38)]|"
+                                                                             options:NSLayoutFormatAlignAllTop | NSLayoutFormatAlignAllBottom
+                                                                             metrics:nil views:viewDictionary]];
+
     
     [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_commentLabel]|"
                                                                              options:kNilOptions
@@ -192,6 +202,13 @@ static NSParagraphStyle *paragraphStyle;
     return commentString;
 }
 
+#pragma mark - Liking
+
+// Informs delegate when the like buttone is tapped
+- (void) likePressed:(UIButton *)sender {
+    [self.delegate cellDidPressLikeButton:self];
+}
+
 #pragma mark - Image View
 
 - (void) tapFired:(UITapGestureRecognizer *)sender {
@@ -206,7 +223,7 @@ static NSParagraphStyle *paragraphStyle;
 
 // Assignment Work - two finger tap on cell to retry image download
 - (void) twoFingerTapFired:(UITapGestureRecognizer *)sender {
-    //if (self.twoFingerCellTapRecognizer.numberOfTapsRequired == 2) {
+    //if (self.twoFingerCellTapRecognizer.numberOfTouchesRequired == 2) {
     [self.delegate cell:self didTwoFingerPressImageView:self.mediaImageView];
     //}
 }
@@ -233,7 +250,7 @@ static NSParagraphStyle *paragraphStyle;
     if (_mediaItem.image) {
         self.imageHeightConstraint.constant = self.mediaItem.image.size.height / self.mediaItem.image.size.width * CGRectGetWidth(self.contentView.bounds);
     } else {
-        self.imageHeightConstraint.constant = 20; //retry image download ASSIGNMENT
+        self.imageHeightConstraint.constant = 600; //retry image download ASSIGNMENT
     }
 
 //    if (self.mediaItem.image) {
@@ -249,6 +266,8 @@ static NSParagraphStyle *paragraphStyle;
     self.mediaImageView.image = _mediaItem.image;
     self.usernameAndCaptionLabel.attributedText = [self usernameAndCaptionString];
     self.commentLabel.attributedText = [self commentString];
+    // displays the correct state on the like button
+    self.likeButton.likeButtonState = mediaItem.likeState;
 }
 
 + (CGFloat) heightForMediaItem:(BLCMedia *)mediaItem width:(CGFloat)width {

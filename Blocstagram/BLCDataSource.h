@@ -30,6 +30,9 @@ typedef void (^BLCNewItemCompletionBlock)(NSError *error);
 
 - (void) downloadImageForMediaItem:(BLCMedia *)mediaItem;
 
+// Like Button
+- (void) toggleLikeOnMediaItem:(BLCMedia *)mediaItem;
+
 + (NSString *) instagramClientID;
 
 @end
